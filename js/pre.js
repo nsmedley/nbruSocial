@@ -60,14 +60,29 @@ $(document).ready(function () {
         }
     });
 
-
     $('form').on('submit', function (e) {
         e.preventDefault();
-        html2canvas($('.pre__poster')[0]).then(function (canvas) {
+        $('.pre__poster').show();
+        adjustFontSize();
+        $('.download').show();
+        $('html, body').animate({
+            scrollTop: $('.pre__poster').offset().top
+        }, 1000);
+    });
+
+    $('.download').on('click', function () {
+        var originalWidth = $('.pre__poster').width();
+        $('.pre__poster').css('width', '1200px');
+        adjustFontSize();
+        html2canvas(document.querySelector('.pre__poster')).then(function (canvas) {
             var link = document.createElement('a');
             link.href = canvas.toDataURL('image/jpeg');
             link.download = 'poster.jpg';
             link.click();
+
+            // Revert the width back to original
+            $('.pre__poster').css('width', originalWidth);
+            adjustFontSize();
         });
     });
 
@@ -79,4 +94,44 @@ $(document).ready(function () {
     $('#location').trigger('input');
     $('#venue').trigger('change');
 
+    function adjustFontSize() {
+        var posterWidth = $('.pre__poster').width();
+        var scaleFactor = posterWidth / 1200;
+
+        $('.pre__poster__competition').css({
+            'font-size': 1.222 * scaleFactor + 'rem',
+            'letter-spacing': 0.375 * scaleFactor + 'rem'
+        });
+        $('.pre__poster__team').css({
+            'font-size': 2.188 * scaleFactor + 'rem',
+            'letter-spacing': -0.063 * scaleFactor + 'rem'
+        });
+
+        $('.pre__poster__e img').css({
+            'width': 100 * scaleFactor + '%',
+            'height': 'auto'
+        });
+        $('.pre__poster__player').css({
+            'max-width': 40.625 * scaleFactor + 'rem',
+            'max-height': 48.125 * scaleFactor + 'rem',
+            'top': 13 * scaleFactor + '%',
+            'left': 23 * scaleFactor + '%'
+        });
+
+        $('.pre__poster__date').css({
+            'font-size': 3.125 * scaleFactor + 'rem',
+            'letter-spacing': 0.025 * scaleFactor + 'rem'
+        });
+        $('.pre__poster__time').css({
+            'font-size': 3.125 * scaleFactor + 'rem',
+            'letter-spacing': 0.025 * scaleFactor + 'rem'
+        });
+        $('.pre__poster__location').css({
+            'font-size': 1.75 * scaleFactor + 'rem',
+            'letter-spacing': 0.019 * scaleFactor + 'rem'
+        });
+    }
+
+    $(window).on('resize', adjustFontSize);
+    adjustFontSize();
 });

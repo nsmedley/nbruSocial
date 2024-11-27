@@ -4,6 +4,10 @@ $gobold: 'Gobold Bold', sans-serif;
 $gobold-uplow: 'Gobold Uplow', sans-serif;
 $takota: 'Takota', sans-serif;
 
+html {
+    font-size: 16px; // Set the root font size to 16px
+}
+
 body {
     background-image: url('/img/bg.jpg');
     background-size: contain;
@@ -129,32 +133,35 @@ body {
 
     &__poster {
         background: url('/img/pre/bg.jpg') no-repeat center center;
-        width: 1200px;
-        height: 1200px;
+        background-size: cover;
+        width: 100%;
+        max-width: 1200px;
+        aspect-ratio: 1/1;
         position: relative;
         margin-top: 40px;
+        display: none;
 
         &__competition {
             font-family: $gobold-uplow;
-            font-size: 19.55px;
+            font-size: 1.222rem; // 19.55px to rem
             color: #f6f9f9;
             position: absolute;
             top: 5%;
             left: 50%;
             transform: translateX(-50%);
             text-transform: uppercase;
-            letter-spacing: 6px;
+            letter-spacing: 0.375rem; // 6px to rem
         }
 
         &__team {
             font-family: $gobold;
-            font-size: 35px;
+            font-size: 2.188rem; // 35px to rem
             color: #f5b136;
             position: absolute;
             top: 71.8%;
             left: 25.8%;
             text-transform: uppercase;
-            letter-spacing: -1px;
+            letter-spacing: -0.063rem; // -1px to rem
             z-index: 2;
 
             span {
@@ -166,39 +173,39 @@ body {
         &__date {
             font-family: $kenyan;
             text-transform: uppercase;
-            font-size: 50px;
+            font-size: 3.125rem; // 50px to rem
             color: #1a1a1a;
             position: absolute;
             top: 86.6%;
             left: 1.7%;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.025rem; // 0.4px to rem
         }
 
         &__time {
             font-family: $kenyan;
             text-transform: uppercase;
-            font-size: 50px;
+            font-size: 3.125rem; // 50px to rem
             color: #1a1a1a;
             position: absolute;
             top: 86.6%;
             left: 19.5%;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.025rem; // 0.4px to rem
         }
 
         &__location {
             font-family: $kenyan;
             text-transform: uppercase;
-            font-size: 28px;
+            font-size: 1.75rem; // 28px to rem
             color: #1a1a1a;
             position: absolute;
             top: 92.2%;
             left: 1.7%;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.019rem; // 0.3px to rem
         }
 
         &__player {
-            max-width: 650px;
-            max-height: 770px;
+            max-width: 40.625rem; // 650px to rem
+            max-height: 48.125rem; // 770px to rem
             position: absolute;
             top: 13%;
             left: 23%;
@@ -212,6 +219,25 @@ body {
             top: 43.7%;
             left: 54.5%;
             z-index: 2;
+        }
+    }
+
+    .download {
+        font-family: $gobold-uplow;
+        font-size: 1.2rem;
+        color: #030c25;
+        background-color: #f6f9f9;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: all 0.3s;
+        width: 100%;
+        margin-top: 20px;
+        display: none;
+
+        &:hover {
+            background-color: #030c25;
+            color: #f6f9f9;
         }
     }
 }
