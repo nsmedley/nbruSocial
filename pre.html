@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBRUFC Social assets builder</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+    <script src="/js/jquery.ui.touch-punch.min.js"></script>
+    <script src="/js/html2canvas.min.js"></script>
+    <script src="/js/pre.js"></script>
+</head>
+
+<body>
+    <div class="pre">
+        <div class="back">
+            <a href="/index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                    fill="#e8eaed">
+                    <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+                </svg>
+                Back to home
+            </a>
+        </div>
+
+        <div class="pre__container">
+            <div class="pre__options">
+                <form>
+                    <label for="competition">Competition:</label>
+                    <input type="text" id="competition" name="competition">
+                    <label>Home or away:</label>
+                    <select name="venue" id="venue">
+                        <option value="Home">Home</option>
+                        <option value="Away">Away</option>
+                    </select>
+                    <label for="team">Select team:</label>
+                    <select name="team" id="team">
+                        <option value="1">1st XV</option>
+                        <option value="2">2nd XV</option>
+                    </select>
+                    <label for="opposition">Opposition:</label>
+                    <input type="text" id="opposition" name="opposition" required>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                    <label for="time">Kick off time:</label>
+                    <input type="time" id="time" name="time" required value="14:15">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required
+                        value="Hartsfield, reeds ln, leasowe, wirral ch46 3rh">
+                    <label for="player">Player image:</label>
+                    <input type="file" id="player" name="player" accept="image/png">
+                    <button type="submit">Generate poster</button>
+                </form>
+            </div>
+
+            <div class="pre__poster">
+                <div class="pre__poster__container">
+                    <div class="pre__poster__competition"></div>
+                    <div class="pre__poster__team"></div>
+                    <div class="pre__poster__date"></div>
+                    <div class="pre__poster__location"></div>
+                    <div class="pre__poster__player">
+                        <img src="img/pre/player.png" alt="Player">
+                    </div>
+                    <div class="pre__poster__e">
+                        <img src="img/pre/e.png" alt="E">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
