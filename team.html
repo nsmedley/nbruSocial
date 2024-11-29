@@ -7,8 +7,14 @@
     <title>NBRUFC Social assets builder</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+    <script src="./js/jquery.ui.touch-punch.min.js"></script>
+    <script src="./js/html2canvas.min.js"></script>
+    <script src="./js/team.js"></script>
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -21,6 +27,269 @@
                 </svg>
                 Back to home
             </a>
+        </div>
+
+
+        <div class="team__container">
+            <div class="team__options">
+                <form>
+                    <label for="team">Select team:</label>
+                    <select name="team" id="team">
+                        <option value="1">1st XV</option>
+                        <option value="2">2nd XV</option>
+                    </select>
+                    <label for="opposition">Opposition:</label>
+                    <input type="text" id="opposition" name="opposition" required>
+
+                    <div class="header">
+                        <span></span>
+                        <span class="first">First name</span>
+                        <span class="last">Last name</span>
+                        <span class="captain">C</span>
+                        <span class="youth">Y</span>
+                        <span class="sponsor">S</span>
+                    </div>
+                    <div class="player">
+                        <span class="position">1.</span>
+                        <input type="text" id="player1first" name="player1first">
+                        <input type="text" id="player1last" name="player1last">
+                        <input type="radio" id="player1captain" name="captain">
+                        <input type="checkbox" id="player1youth" name="player1youth">
+                        <input type="checkbox" id="player1sponsor" name="player1sponsor">
+                        <input type="text" id="player1sponsortext" name="player1sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">2.</span>
+                        <input type="text" id="player2first" name="player2first">
+                        <input type="text" id="player2last" name="player2last">
+                        <input type="radio" id="player2captain" name="captain">
+                        <input type="checkbox" id="player2youth" name="player2youth">
+                        <input type="checkbox" id="player2sponsor" name="player2sponsor">
+                        <input type="text" id="player2sponsortext" name="player2sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">3.</span>
+                        <input type="text" id="player3first" name="player3first">
+                        <input type="text" id="player3last" name="player3last">
+                        <input type="radio" id="player3captain" name="captain">
+                        <input type="checkbox" id="player3youth" name="player3youth">
+                        <input type="checkbox" id="player3sponsor" name="player3sponsor">
+                        <input type="text" id="player3sponsortext" name="player3sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">4.</span>
+                        <input type="text" id="player4first" name="player4first">
+                        <input type="text" id="player4last" name="player4last">
+                        <input type="radio" id="player4captain" name="captain">
+                        <input type="checkbox" id="player4youth" name="player4youth">
+                        <input type="checkbox" id="player4sponsor" name="player4sponsor">
+                        <input type="text" id="player4sponsortext" name="player4sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">5.</span>
+                        <input type="text" id="player5first" name="player5first">
+                        <input type="text" id="player5last" name="player5last">
+                        <input type="radio" id="player5captain" name="captain">
+                        <input type="checkbox" id="player5youth" name="player5youth">
+                        <input type="checkbox" id="player5sponsor" name="player5sponsor">
+                        <input type="text" id="player5sponsortext" name="player5sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">6.</span>
+                        <input type="text" id="player6first" name="player6first">
+                        <input type="text" id="player6last" name="player6last">
+                        <input type="radio" id="player6captain" name="captain">
+                        <input type="checkbox" id="player6youth" name="player6youth">
+                        <input type="checkbox" id="player6sponsor" name="player6sponsor">
+                        <input type="text" id="player6sponsortext" name="player6sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">7.</span>
+                        <input type="text" id="player7first" name="player7first">
+                        <input type="text" id="player7last" name="player7last">
+                        <input type="radio" id="player7captain" name="captain">
+                        <input type="checkbox" id="player7youth" name="player7youth">
+                        <input type="checkbox" id="player7sponsor" name="player7sponsor">
+                        <input type="text" id="player7sponsortext" name="player7sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">8.</span>
+                        <input type="text" id="player8first" name="player8first">
+                        <input type="text" id="player8last" name="player8last">
+                        <input type="radio" id="player8captain" name="captain">
+                        <input type="checkbox" id="player8youth" name="player8youth">
+                        <input type="checkbox" id="player8sponsor" name="player8sponsor">
+                        <input type="text" id="player8sponsortext" name="player8sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">9.</span>
+                        <input type="text" id="player9first" name="player9first">
+                        <input type="text" id="player9last" name="player9last">
+                        <input type="radio" id="player9captain" name="captain">
+                        <input type="checkbox" id="player9youth" name="player9youth">
+                        <input type="checkbox" id="player9sponsor" name="player9sponsor">
+                        <input type="text" id="player9sponsortext" name="player9sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">10.</span>
+                        <input type="text" id="player10first" name="player10first">
+                        <input type="text" id="player10last" name="player10last">
+                        <input type="radio" id="player10captain" name="captain">
+                        <input type="checkbox" id="player10youth" name="player10youth">
+                        <input type="checkbox" id="player10sponsor" name="player10sponsor">
+                        <input type="text" id="player10sponsortext" name="player10sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">11.</span>
+                        <input type="text" id="player11first" name="player11first">
+                        <input type="text" id="player11last" name="player11last">
+                        <input type="radio" id="player11captain" name="captain">
+                        <input type="checkbox" id="player11youth" name="player11youth">
+                        <input type="checkbox" id="player11sponsor" name="player11sponsor">
+                        <input type="text" id="player11sponsortext" name="player11sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">12.</span>
+                        <input type="text" id="player12first" name="player12first">
+                        <input type="text" id="player12last" name="player12last">
+                        <input type="radio" id="player12captain" name="captain">
+                        <input type="checkbox" id="player12youth" name="player12youth">
+                        <input type="checkbox" id="player12sponsor" name="player12sponsor">
+                        <input type="text" id="player12sponsortext" name="player12sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">13.</span>
+                        <input type="text" id="player13first" name="player13first">
+                        <input type="text" id="player13last" name="player13last">
+                        <input type="radio" id="player13captain" name="captain">
+                        <input type="checkbox" id="player13youth" name="player13youth">
+                        <input type="checkbox" id="player13sponsor" name="player13sponsor">
+                        <input type="text" id="player13sponsortext" name="player13sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">14.</span>
+                        <input type="text" id="player14first" name="player14first">
+                        <input type="text" id="player14last" name="player14last">
+                        <input type="radio" id="player14captain" name="captain">
+                        <input type="checkbox" id="player14youth" name="player14youth">
+                        <input type="checkbox" id="player14sponsor" name="player14sponsor">
+                        <input type="text" id="player14sponsortext" name="player14sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">15.</span>
+                        <input type="text" id="player15first" name="player15first">
+                        <input type="text" id="player15last" name="player15last">
+                        <input type="radio" id="player15captain" name="captain">
+                        <input type="checkbox" id="player15youth" name="player15youth">
+                        <input type="checkbox" id="player15sponsor" name="player15sponsor">
+                        <input type="text" id="player15sponsortext" name="player15sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">16.</span>
+                        <input type="text" id="player16first" name="player16first">
+                        <input type="text" id="player16last" name="player16last">
+                        <input type="radio" id="player16captain" name="captain">
+                        <input type="checkbox" id="player16youth" name="player16youth">
+                        <input type="checkbox" id="player16sponsor" name="player16sponsor">
+                        <input type="text" id="player16sponsortext" name="player16sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">17.</span>
+                        <input type="text" id="player17first" name="player17first">
+                        <input type="text" id="player17last" name="player17last">
+                        <input type="radio" id="player17captain" name="captain">
+                        <input type="checkbox" id="player17youth" name="player17youth">
+                        <input type="checkbox" id="player17sponsor" name="player17sponsor">
+                        <input type="text" id="player17sponsortext" name="player17sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player">
+                        <span class="position">18.</span>
+                        <input type="text" id="player18first" name="player18first">
+                        <input type="text" id="player18last" name="player18last">
+                        <input type="radio" id="player18captain" name="captain">
+                        <input type="checkbox" id="player18youth" name="player18youth">
+                        <input type="checkbox" id="player18sponsor" name="player18sponsor">
+                        <input type="text" id="player18sponsortext" name="player18sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player" style="display: none;">
+                        <span class="position">19.</span>
+                        <input type="text" id="player19first" name="player19first">
+                        <input type="text" id="player19last" name="player19last">
+                        <input type="radio" id="player19captain" name="captain">
+                        <input type="checkbox" id="player19youth" name="player19youth">
+                        <input type="checkbox" id="player19sponsor" name="player19sponsor">
+                        <input type="text" id="player19sponsortext" name="player19sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player" style="display: none;">
+                        <span class="position">20.</span>
+                        <input type="text" id="player20first" name="player20first">
+                        <input type="text" id="player20last" name="player20last">
+                        <input type="radio" id="player20captain" name="captain">
+                        <input type="checkbox" id="player20youth" name="player20youth">
+                        <input type="checkbox" id="player20sponsor" name="player20sponsor">
+                        <input type="text" id="player20sponsortext" name="player20sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player" style="display: none;">
+                        <span class="position">21.</span>
+                        <input type="text" id="player21first" name="player21first">
+                        <input type="text" id="player21last" name="player21last">
+                        <input type="radio" id="player21captain" name="captain">
+                        <input type="checkbox" id="player21youth" name="player21youth">
+                        <input type="checkbox" id="player21sponsor" name="player21sponsor">
+                        <input type="text" id="player21sponsortext" name="player21sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player" style="display: none;">
+                        <span class="position">22.</span>
+                        <input type="text" id="player22first" name="player22first">
+                        <input type="text" id="player22last" name="player22last">
+                        <input type="radio" id="player22captain" name="captain">
+                        <input type="checkbox" id="player22youth" name="player22youth">
+                        <input type="checkbox" id="player22sponsor" name="player22sponsor">
+                        <input type="text" id="player22sponsortext" name="player22sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <div class="player" style="display: none;">
+                        <span class="position">23.</span>
+                        <input type="text" id="player23first" name="player23first">
+                        <input type="text" id="player23last" name="player23last">
+                        <input type="radio" id="player23captain" name="captain">
+                        <input type="checkbox" id="player23youth" name="player23youth">
+                        <input type="checkbox" id="player23sponsor" name="player23sponsor">
+                        <input type="text" id="player23sponsortext" name="player23sponsortext" class="sponsor" hidden
+                            placeholder="Sponsor name">
+                    </div>
+                    <button type="submit">Generate poster</button>
+                </form>
+            </div>
+
+            <div class="poster">
+                <div class="team__poster">
+                    <div class="team__poster__container">
+                    </div>
+                </div>
+            </div>
+            <button class="download">Download poster</button>
         </div>
     </div>
 </body>

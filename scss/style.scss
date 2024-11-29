@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    background-image: url('/nbruSocial/img/bg.jpg');
+    background-image: url('../img/bg.jpg');
     background-size: contain;
     background-repeat: repeat-x;
     min-height: 100vh;
@@ -132,7 +132,7 @@ body {
     }
 
     &__poster {
-        background: url('/nbruSocial/img/pre/bg.jpg') no-repeat center center;
+        background: url('../img/pre/bg.jpg') no-repeat center center;
         background-size: cover;
         width: 100%;
         max-width: 1200px;
@@ -244,6 +244,89 @@ body {
 
 .team {
     padding: 20px;
+
+    &__container {
+        margin-top: 40px;
+    }
+
+    &__options {
+        form {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                font-family: $gobold;
+                font-size: 16px;
+                color: #f6f9f9;
+                margin-bottom: 5px;
+            }
+
+            .header {
+                display: grid;
+                grid-template-columns: 0.8fr 4fr 4fr 0.8fr 0.8fr 0.8fr;
+                column-gap: 10px;
+                position: sticky;
+
+                span {
+                    font-family: $gobold;
+                    font-size: 16px;
+                    color: #f6f9f9;
+                    margin-bottom: 5px;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+
+            .player {
+                display: grid;
+                grid-template-columns: 0.8fr 4fr 4fr 0.8fr 0.8fr 0.8fr;
+                column-gap: 10px;
+
+                .position {
+                    font-family: $gobold;
+                    font-size: 16px;
+                    color: #f6f9f9;
+                    margin-bottom: 5px;
+                    width: 50%;
+                    text-align: center;
+                }
+
+                .sponsor {
+                    grid-column: 2 / 4;
+                }
+            }
+
+            input,
+            select {
+                font-family: $gobold;
+                font-size: 16px;
+                padding: 6px 3px;
+                border-radius: 3px;
+                border: none;
+                width: 100%;
+                background-color: #f6f9f9;
+                margin-bottom: 10px;
+            }
+
+            button {
+                font-family: $gobold-uplow;
+                font-size: 1.2rem;
+                color: #030c25;
+                background-color: #f6f9f9;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                transition: all 0.3s;
+                width: 100%;
+                margin-top: 20px;
+
+                &:hover {
+                    background-color: #030c25;
+                    color: #f6f9f9;
+                }
+            }
+        }
+    }
 }
 
 .scores {
