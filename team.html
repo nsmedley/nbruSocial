@@ -35,8 +35,9 @@
                 <form>
                     <label for="team">Select team:</label>
                     <select name="team" id="team">
-                        <option value="1">1st XV</option>
-                        <option value="2">2nd XV</option>
+                        <option disabled selected>Select team</option>
+                        <option value="1st team">1st team</option>
+                        <option value="2nd team">2nd team</option>
                     </select>
                     <label for="opposition">Opposition:</label>
                     <input type="text" id="opposition" name="opposition" required>
@@ -229,7 +230,7 @@
                         <input type="text" id="player18sponsortext" name="player18sponsortext" class="sponsor" hidden
                             placeholder="Sponsor name">
                     </div>
-                    <div class="player" style="display: none;">
+                    <div class="player">
                         <span class="position">19.</span>
                         <input type="text" id="player19first" name="player19first">
                         <input type="text" id="player19last" name="player19last">
@@ -239,7 +240,7 @@
                         <input type="text" id="player19sponsortext" name="player19sponsortext" class="sponsor" hidden
                             placeholder="Sponsor name">
                     </div>
-                    <div class="player" style="display: none;">
+                    <div class="player">
                         <span class="position">20.</span>
                         <input type="text" id="player20first" name="player20first">
                         <input type="text" id="player20last" name="player20last">
@@ -249,7 +250,7 @@
                         <input type="text" id="player20sponsortext" name="player20sponsortext" class="sponsor" hidden
                             placeholder="Sponsor name">
                     </div>
-                    <div class="player" style="display: none;">
+                    <div class="player">
                         <span class="position">21.</span>
                         <input type="text" id="player21first" name="player21first">
                         <input type="text" id="player21last" name="player21last">
@@ -259,7 +260,7 @@
                         <input type="text" id="player21sponsortext" name="player21sponsortext" class="sponsor" hidden
                             placeholder="Sponsor name">
                     </div>
-                    <div class="player" style="display: none;">
+                    <div class="player">
                         <span class="position">22.</span>
                         <input type="text" id="player22first" name="player22first">
                         <input type="text" id="player22last" name="player22last">
@@ -269,16 +270,6 @@
                         <input type="text" id="player22sponsortext" name="player22sponsortext" class="sponsor" hidden
                             placeholder="Sponsor name">
                     </div>
-                    <div class="player" style="display: none;">
-                        <span class="position">23.</span>
-                        <input type="text" id="player23first" name="player23first">
-                        <input type="text" id="player23last" name="player23last">
-                        <input type="radio" id="player23captain" name="captain">
-                        <input type="checkbox" id="player23youth" name="player23youth">
-                        <input type="checkbox" id="player23sponsor" name="player23sponsor">
-                        <input type="text" id="player23sponsortext" name="player23sponsortext" class="sponsor" hidden
-                            placeholder="Sponsor name">
-                    </div>
                     <button type="submit">Generate poster</button>
                 </form>
             </div>
@@ -286,6 +277,12 @@
             <div class="poster">
                 <div class="team__poster">
                     <div class="team__poster__container">
+                        <div class="team__poster__team"></div>
+                        <div class="team__poster__opposition"></div>
+                        <div class="team__poster__players">
+                        </div>
+                        <div class="team__poster__substitutes">
+                        </div>
                     </div>
                 </div>
             </div>
