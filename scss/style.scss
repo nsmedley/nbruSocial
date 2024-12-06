@@ -204,8 +204,8 @@ body {
         }
 
         &__player {
-            max-width: 40.625rem; // 650px to rem
-            max-height: 48.125rem; // 770px to rem
+            width: 650px; // 650px to rem
+            height: 770px; // 770px to rem
             position: absolute;
             top: 13%;
             left: 23%;
