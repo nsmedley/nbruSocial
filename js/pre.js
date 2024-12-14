@@ -45,9 +45,12 @@ $(document).ready(function () {
         }
     });
 
-    $('.pre__poster__player img').draggable({
+    $('.pre__poster__player').draggable({
         containment: '.pre__poster',
         scroll: false
+    });
+
+    $('.pre__poster__player').resizable({
     });
 
     $('#venue').on('change', function () {
@@ -107,13 +110,16 @@ $(document).ready(function () {
             'letter-spacing': -0.063 * scaleFactor + 'rem'
         });
 
+        $('.pre__poster__player img').css({
+            'width': 'auto',
+            'height': 100 * scaleFactor + '%'
+        });
+
         $('.pre__poster__e img').css({
             'width': 100 * scaleFactor + '%',
             'height': 'auto'
         });
         $('.pre__poster__player').css({
-            'max-width': 40.625 * scaleFactor + 'rem',
-            'max-height': 48.125 * scaleFactor + 'rem',
             'top': 13 * scaleFactor + '%',
             'left': 23 * scaleFactor + '%'
         });

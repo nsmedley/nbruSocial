@@ -9,17 +9,18 @@ $(document).ready(function () {
         }
     });
 
-    $('#team').change(function () {
-        const selectedTeam = $(this).val();
+    function updateTeamAndOpposition() {
+        const selectedTeam = $('#team').val();
         $('.team__poster__team').html(`${selectedTeam} <span>XV</span>`);
-    });
 
-    $('#opposition').change(function () {
-        const opposition = $(this).val();
+        const opposition = $('#opposition').val();
         $('.team__poster__opposition').html(`vs ${opposition}`);
-    });
+    }
 
-    $('input').change(function () {
+    $('#team').change(updateTeamAndOpposition);
+    $('#opposition').change(updateTeamAndOpposition);
+
+    function updatePlayers() {
         const playersContainer = $('.team__poster__players');
         playersContainer.empty();
 
@@ -54,9 +55,9 @@ $(document).ready(function () {
                 playersContainer.append(playerDiv);
             }
         }
-    });
+    }
 
-    $('input').change(function () {
+    function updateSubstitutes() {
         const substitutesContainer = $('.team__poster__substitutes');
         substitutesContainer.empty();
 
@@ -84,60 +85,16 @@ $(document).ready(function () {
                 substitutesContainer.append(playerDiv);
             }
         }
-    });
-
-    function adjustFontSize() {
-        var posterWidth = $('.team__poster').width();
-        var scaleFactor = posterWidth / 1200;
-
-        $('.team__poster__team').css({
-            'font-size': 201 * scaleFactor + 'px',
-            'letter-spacing': 5.72 * scaleFactor + 'px'
-        });
-        $('.team__poster__team span').css({
-            'font-size': 87 * scaleFactor + 'px',
-            'left': -30 * scaleFactor + 'px'
-        });
-        $('.team__poster__opposition').css({
-            'font-size': 50 * scaleFactor + 'px',
-            'letter-spacing': 1.42 * scaleFactor + 'px'
-        });
-        $('.team__poster__player__position').css({
-            'font-size': 30 * scaleFactor + 'px'
-        });
-        $('.team__poster__player__name').css({
-            'font-size': 30 * scaleFactor + 'px'
-        });
-        $('.team__poster__player__name span').css({
-            'font-size': 50 * scaleFactor + 'px'
-        });
-        $('.team__poster__player__sponsor').css({
-            'font-size': 20 * scaleFactor + 'px'
-        });
-        $('.team__poster__player__captain').css({
-            'font-size': 50 * scaleFactor + 'px'
-        });
-        $('.team__poster__substitute__name').css({
-            'font-size': 18 * scaleFactor + 'px'
-        });
-        $('.team__poster__substitute__name span').css({
-            'font-size': 30 * scaleFactor + 'px'
-        });
-        $('.team__poster__substitute__captain').css({
-            'font-size': 50 * scaleFactor + 'px'
-        });
-        $('.team__poster__substitute__sponsor').css({
-            'font-size': 18 * scaleFactor + 'px'
-        });
     }
 
-    $(window).on('resize', adjustFontSize);
-    adjustFontSize();
+    $('input').change(updateSubstitutes, updatePlayers);
 
     $('form').on('submit', function (e) {
         e.preventDefault();
+        updateSubstitutes();
+        updatePlayers();
+        updateTeamAndOpposition();
         $('.team__poster').show();
-        adjustFontSize();
         $('.download').show();
         $('html, body').animate({
             scrollTop: $('.team__poster').offset().top
@@ -145,18 +102,16 @@ $(document).ready(function () {
     });
 
     $('.download').on('click', function () {
-        var originalWidth = $('.team__poster').width();
-        $('.team__poster').css('width', '1200px');
-        adjustFontSize();
-        html2canvas(document.querySelector('.team__poster')).then(function (canvas) {
-            var link = document.createElement('a');
-            link.href = canvas.toDataURL('image/jpeg');
-            link.download = 'poster.jpg';
-            link.click();
-
-            // Revert the width back to original
-            $('.team__poster').css('width', originalWidth);
-            adjustFontSize();
-        });
+        updateSubstitutes();
+        updatePlayers();
+        updateTeamAndOpposition();
+        setTimeout(function () {
+            html2canvas(document.querySelector('.team__poster')).then(function (canvas) {
+                var link = document.createElement('a');
+                link.href = canvas.toDataURL('image/jpeg', 1.0);
+                link.download = 'poster.jpg';
+                link.click();
+            });
+        }, 100); // Delay to ensure DOM updates are completed
     });
 });
